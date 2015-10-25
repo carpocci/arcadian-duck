@@ -6,21 +6,12 @@
         <div>
             <h1><a href="">Blog</a></h1>
         </div>
-
-        <div>
-            <p>Pubblicato il 25 Ottobre alle 14:35</p>
-            <h2><a href="">Primo post</a></h2>
-            <p>
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
-        </div>
-
-        <div>
-            <p>Pubblicato il 25 Ottobre alle 14:37</p>
-            <h2><a href="">Secondo post</a></h2>
-            <p>
-                Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.
-            </P>
-        </div>
+        {%for post in posts %}
+            <div>
+                <p>Pubbblicato: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
