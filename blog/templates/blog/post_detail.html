@@ -2,12 +2,16 @@
 
 {% block content %}
     <div class="post">
+        <h1>
+            <a href="{% url "post_detail" pk=post.pk %}">
+                {{ post.title }}
+            </a>
+        </h1>
         {%if post.published_date %}
             <div class="date">
                 <p>Pubbblicato: {{ post.published_date }}</p>
             </div>
         {% endif %}
-        <h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaks }}</p>
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url "post_edit" pk=post.pk %}">Edit</a>
